@@ -23,4 +23,4 @@ Put your Week 15 Devlog answer here.
 * [Ninja cat sprites](https://opengameart.org/content/cat-fighter-sprite-sheet)
 * [Item sprites](https://ipixl.itch.io/pixel-art-items-part-1)
 * [Interior tilesets](https://rcpstd.itch.io/interior-tileset-asset-pack-16x16)
-
+* [Rat sprites](https://carysaurus.itch.io/rat-sprites).
