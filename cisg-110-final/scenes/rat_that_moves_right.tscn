@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dax5arcauostu"]
+
+[ext_resource type="Script" uid="uid://j8yt7bpqw7ik" path="res://sprites/environment tilesets/scripts/rat_that_moves_right.gd" id="1_a372v"]
+[ext_resource type="Texture2D" uid="uid://bd65jwiwdj2cc" path="res://sprites/Rat-DarkGrey-Walk.png" id="1_r783x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a372v"]
+atlas = ExtResource("1_r783x")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76q8q"]
+atlas = ExtResource("1_r783x")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am3cc"]
+atlas = ExtResource("1_r783x")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsjwl"]
+atlas = ExtResource("1_r783x")
+region = Rect2(96, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8j4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a372v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76q8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am3cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsjwl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w22c"]
+size = Vector2(64, 26)
+
+[node name="Rat that moves right" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_a372v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 20
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_m8j4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_2w22c")
