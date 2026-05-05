@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://5ealfmy1hufe"]
+
+[ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_btq7l"]
+[ext_resource type="PackedScene" uid="uid://rgwrnmsghqsx" path="res://scenes/explosion_vfx.tscn" id="1_elckd"]
+[ext_resource type="Script" uid="uid://dpulb7qul57c5" path="res://sprites/environment tilesets/scripts/prop.gd" id="1_mb1r7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mb1r7"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tipki"]
+
+[node name="Carrot" type="RigidBody2D" node_paths=PackedStringArray("_explosion_VFX")]
+collision_layer = 4
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_mb1r7")
+script = ExtResource("1_mb1r7")
+_explosion_VFX = NodePath("ExplosionVFX")
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("1_elckd")]
+color = Color(0.90287715, 0.5386948, 0.26915568, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tipki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_btq7l")
+region_enabled = true
+region_rect = Rect2(84.60606, 25.799772, 11.500275, 18.048574)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
