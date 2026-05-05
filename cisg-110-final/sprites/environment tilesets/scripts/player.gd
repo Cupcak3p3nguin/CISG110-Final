@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+class_name player
+
+>>>>>>> Stashed changes
 extends CharacterBody2D
 
 @export var SPEED = 300.0
@@ -38,7 +43,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+<<<<<<< Updated upstream
 		
+=======
+>>>>>>> Stashed changes
 	if direction > 0:
 		_facingRight = true
 	elif direction < 0:
@@ -71,6 +79,7 @@ func _disableKick() -> void:
 	_kickRight.process_mode = Node.PROCESS_MODE_DISABLED
 	_kickLeft.process_mode = Node.PROCESS_MODE_DISABLED
 	
+<<<<<<< Updated upstream
 func _on_kick_right_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print("Right Kick")
 	print(body.name)
@@ -81,3 +90,20 @@ func _on_kick_left_body_shape_entered(body_rid: RID, body: Node2D, body_shape_in
 	print("Left Kick")
 	print(body.name)
 	body.apply_central_impulse(_leftKickDir )
+=======
+	
+
+func _on_kick_right_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	print(body.name)
+	body.apply_central_impulse(_rightKickDir)
+	
+	if body is Prop:
+		body._was_kicked = true
+
+func _on_kick_left_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	print(body.name)
+	body.apply_central_impulse(_leftKickDir )
+
+	if body is Prop:
+		body._was_kicked = true
+>>>>>>> Stashed changes
