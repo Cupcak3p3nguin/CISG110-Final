@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://deariswoaafv7"]
+
+[ext_resource type="Script" uid="uid://dpulb7qul57c5" path="res://sprites/environment tilesets/scripts/prop.gd" id="1_1fd5x"]
+[ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_c6ebs"]
+[ext_resource type="PackedScene" uid="uid://rgwrnmsghqsx" path="res://scenes/explosion_vfx.tscn" id="2_ofsb1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nrr7v"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
+radius = 8.0
+
+[node name="Light Green Heart" type="RigidBody2D" node_paths=PackedStringArray("_explosion_VFX")]
+collision_layer = 4
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_nrr7v")
+script = ExtResource("1_1fd5x")
+_explosion_VFX = NodePath("ExplosionVFX")
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("2_ofsb1")]
+color = Color(0.598, 0.92, 0.6946, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_85g3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.113531, 1.9263221)
+texture = ExtResource("1_c6ebs")
+region_enabled = true
+region_rect = Rect2(34.941826, 12.110239, 7.060417, 5.862665)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
