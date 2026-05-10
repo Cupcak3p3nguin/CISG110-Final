@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://7cir2g8fl7xa"]
+
+[ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_fxgmd"]
+[ext_resource type="Script" uid="uid://dpulb7qul57c5" path="res://sprites/environment tilesets/scripts/prop.gd" id="1_wpr8x"]
+[ext_resource type="PackedScene" uid="uid://rgwrnmsghqsx" path="res://scenes/explosion_vfx.tscn" id="2_6s576"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oao85"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
+radius = 8.0
+
+[node name="Orange" type="RigidBody2D" node_paths=PackedStringArray("_explosion_VFX")]
+collision_layer = 4
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_oao85")
+script = ExtResource("1_wpr8x")
+_explosion_VFX = NodePath("ExplosionVFX")
+
+[node name="ExplosionVFX" parent="." instance=ExtResource("2_6s576")]
+color = Color(0.9019608, 0.5372549, 0.27058825, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_85g3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.113531, 1.9263221)
+texture = ExtResource("1_fxgmd")
+region_enabled = true
+region_rect = Rect2(34.660343, 18.967363, 6.5403214, 6.0279446)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
