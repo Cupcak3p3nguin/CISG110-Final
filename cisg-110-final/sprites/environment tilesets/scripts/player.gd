@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 class_name player
 
 extends CharacterBody2D
 @onready var _anims = get_node("AnimatedSprite2D")
+=======
+<<<<<<< Updated upstream
+=======
+class_name player
+
+>>>>>>> Stashed changes
+extends CharacterBody2D
+
+>>>>>>> 97046de9f1ad7e1eae244930679902d862b5a691
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 
@@ -19,7 +29,10 @@ var kick_timer: float = 0.0
 @export var _leftKickDir: Vector2 = Vector2.LEFT
 
 var _facingRight: bool = true
+<<<<<<< HEAD
 var points: int = 0
+=======
+>>>>>>> 97046de9f1ad7e1eae244930679902d862b5a691
 
 func _enter_tree() -> void:
 	_disableKick()
@@ -41,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+<<<<<<< HEAD
 	if direction > 0:
 		_facingRight = true
 		_anims.flip_h = false
@@ -48,6 +62,17 @@ func _physics_process(delta: float) -> void:
 		_facingRight = false
 		_anims.flip_h = true
 		
+=======
+<<<<<<< Updated upstream
+		
+=======
+>>>>>>> Stashed changes
+	if direction > 0:
+		_facingRight = true
+	elif direction < 0:
+		_facingRight = false
+
+>>>>>>> 97046de9f1ad7e1eae244930679902d862b5a691
 	if kick_timer > 0:
 		kick_timer -= delta
 	if kick_timer <= 0:
@@ -61,6 +86,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		_kick()
 	
+<<<<<<< HEAD
 	if kick_timer > 0:
 		_anims.play("kicking")
 	elif velocity.x == 0 && velocity.y == 0:
@@ -69,6 +95,8 @@ func _physics_process(delta: float) -> void:
 		_anims.play("walking")
 
 	
+=======
+>>>>>>> 97046de9f1ad7e1eae244930679902d862b5a691
 	move_and_slide()
 		
 func _kick() -> void:
@@ -83,6 +111,21 @@ func _disableKick() -> void:
 	_kickRight.process_mode = Node.PROCESS_MODE_DISABLED
 	_kickLeft.process_mode = Node.PROCESS_MODE_DISABLED
 	
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+func _on_kick_right_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	print("Right Kick")
+	print(body.name)
+	body.apply_central_impulse(_rightKickDir)
+	
+
+func _on_kick_left_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	print("Left Kick")
+	print(body.name)
+	body.apply_central_impulse(_leftKickDir )
+=======
+>>>>>>> 97046de9f1ad7e1eae244930679902d862b5a691
 	
 
 func _on_kick_right_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
@@ -91,14 +134,22 @@ func _on_kick_right_body_shape_entered(body_rid: RID, body: Node2D, body_shape_i
 	
 	if body is Prop:
 		body._was_kicked = true
+<<<<<<< HEAD
 		points += 1
 		%PointsLabel.text ="Points:" + str(points)
 		
+=======
+
+>>>>>>> 97046de9f1ad7e1eae244930679902d862b5a691
 func _on_kick_left_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print(body.name)
 	body.apply_central_impulse(_leftKickDir )
 
 	if body is Prop:
 		body._was_kicked = true
+<<<<<<< HEAD
 		points += 1
 		%PointsLabel.text = "Points:" + str(points)
+=======
+>>>>>>> Stashed changes
+>>>>>>> 97046de9f1ad7e1eae244930679902d862b5a691
