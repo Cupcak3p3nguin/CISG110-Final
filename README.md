@@ -15,8 +15,8 @@ One issue I had was adding the explosion to the other objects. When I first trie
 One issue I had was that I forgot to make the label a unique name. I wrote the code to make the label add and deduct points. When I tested it, I got an error. I tried to figure out what the problem was because my code looked like how minigame 3 showed the label code. Then I went back and looked at the hints and noticed I didn't make the label a unique name. After I made the label a unique name, my code worked.
 
 ### Week 15
+In the future I want to create and publish my own video game. I hope to throughout highschool countiune to learn more about developing my own game. I also want to major in game development in college. I've learned from this class not to wait until the last minute to do somthing. When working on my goals for the future I'm not going to wait until I'm older, to start working towards them. 
 
-Put your Week 15 Devlog answer here.
 
 ## Open-Source Assets
 
